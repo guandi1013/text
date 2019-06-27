@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+
+.aaa{
+	background-image: url(../image/neiye.jpg);
+		width:1050px;
+	  height: 700px;
+	position: fixed;
+	left: 50%;
+	top:50%;
+	z-index: 10;
+	margin-top: -350px;
+	margin-left: -525px;
+	border:3px solid ;
+		border-color:#26677A;
+}
+ 
+#nav ul li {
+	list-style-type: none;
+	float: left;
+	width: 300px;
+	height: 105px;
+	margin-left:10px;
+	margin-right: 10px;
+	margin-bottom: 30px;
+	margin-top: 130px;
+	position: relative;
+}
+#nav ul li img {
+	z-index: 999;
+	margin: auto;
+	position: absolute;
+	left:0;
+	top :0;
+	bottom: 0;
+	right: 0;
+	transition:1s;	
+	width: 250px;
+
+}
+	#nav ul li img:hover{
+		transform: rotate(360deg) scale(1.3);
+	}
+   
