@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+
+.aaa{
+	background-image: url(../image/shouye.jpg);
+		width:1050px;
+	  height: 700px;
+	position: fixed;
+	left: 50%;
+	top:50%;
+	z-index: 10;
+	margin-top: -350px;
+	margin-left: -525px;
+	border:3px solid ;
+	border-color:#3A4F51;
+}
+.ccc
+{   background-image: url(../image/enter.png);
+		width:662px;
+	  height: 198px;
+	position: fixed;
+	left: 50%;
+	top:50%;
+	z-index: 10;
+	margin-top: 140px;
+	margin-left: -331px;
+	
+	 }
+.ccc:hover{
+		transform: scale(1.1);
+	}
+	
+
+.bbb{	width:1050px;
+	  height: 700px;
+	position: fixed;
+	left: 50%;
+	top:50%;
+	z-index: 10;
+	margin-top: -350px;
+	margin-left: -525px;
+	border:3px solid ;
+border-color:#26677A}
+
+
