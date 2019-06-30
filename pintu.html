@@ -1,0 +1,88 @@
+<!DOCTYPE html >
+
+<html >
+<head>
+    <title>拼图游戏</title>
+   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+   <style>
+.zong {
+width: 757px;
+height: 764px;
+margin: 0 auto;
+}
+
+.zong table {
+width: 757px;
+height: 764px;
+border: solid 1px cyan;
+}
+</style>
+
+<div class="zong">
+<table>
+<tr>
+<td><img src="img/01.gif"></td>
+<td><img src="img/02.gif"></td>
+<td><img src="img/03.gif"></td>
+</tr>
+<tr>
+<td><img src="img/04.gif"></td>
+<td><img src="img/05.gif"></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="img/07.gif"></td>
+<td><img src="img/08.gif"></td>
+<td><img src="img/09.gif"></td>
+</tr>
+</table>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script>
+$(function() {
+var arr = Array();
+
+var tds = $('td');
+var imgs = $('td img').remove();
+while(arr.length < 8) {
+ran();
+}
+for(var i = 0; i < tds.length; i++) {
+tds.eq(i).append(imgs[arr[i]]);
+}
+
+function ran() {
+var num = parseInt(Math.random() * 8);
+for(var i = 0; i < arr.length; i++) {
+if(arr[i] == num) {
+return;
+}
+}
+arr.push(num);
+}
+tds.click(function() {
+var indes = $('td').index($(this));
+//	var top = $(this).parent().prev().children().eq(indes);
+//	var bottom = $(this).parent().next().children().eq(indes);
+//	var left = $(this).eq(indes);
+//	var right = $(this).eq(indes);
+var empts = $('td').index($('td:not(":has(img)")'));
+//	var empts = $('td:empty').index();
+if(indes == 2 && empts ==3 || indes == 3 && empts ==2){
+return false;
+}
+if(indes == 5 && empts ==6 || indes == 6 && empts ==5){
+return false;
+}
+if(indes + 1 == empts || indes - 1 == empts || indes + 3 == empts || indes - 3 == empts) {
+$(this).children().appendTo($('td:not(":has(img)")'));
+}
+
+})
+});
+</script>
+</body>
+
+</html>

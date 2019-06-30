@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <title>无标题文档</title>
 <style type="text/css">
+	
 	.aaa{
-	background-image: url(image/neibei.jpg);
+	background-image: url(image/neibeix.jpg);
 		width:1050px;
 	  height: 700px;
 	position: fixed;
@@ -16,11 +17,61 @@
 	margin-left: -525px;
 	border:3px solid ;
 	border-color:#3A4F51;
-}</style>
+		
+}
+	
+	#nav ul li {
+	list-style-type: none;
+	float: left;
+	width: 400px;
+	height: 105px;
+	margin-left:7px;
+	margin-right: 10px;
+	margin-bottom: 58px;
+	margin-top: 150px;
+	position: relative;
+			
+}
+#nav ul li img {
+	z-index: 999;
+	margin: auto;
+	position: absolute;
+	left:0;
+	top :0;
+	bottom: 0;
+	right: 0;
+	transition:1s;	
+	width: 350px;
+	display: block;
+
+
+}
+
+	#nav ul li img:hover{
+		transform:  scale(1.2);
+		
+	}
+		#nav ul li.three{
+	margin-left: 183px;
+				
+}
+
+		
+	</style>
+
 </head>
 
 <body>
 <div class="aaa">
+<div id="nav">
+  <ul>
+   <li><a href="mz.html"><img  src="image/mz.png"></a></li>
+    <li><a href=".html"><img src="image/hzz.png"></li>
+	  <li class="three"><a href=".html"><img src="image/dwe.png"></a></li>  
+	   <li><a href=".html"><img src="image/elc.png"></a></li>  
+ 
+  </ul>
+</div>
 </div>
 
 </body>
