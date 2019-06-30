@@ -1,10 +1,49 @@
 <!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>无标题文档</title>
-</head>
-
-<body>
-</body>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <script type="text/javascript">
+  <!--
+    window.i =0;
+    window.maxCount =10;//题目总数10
+    function nextChoice () {
+        i++;
+        if(i<=maxCount)
+            document.getElementById("contentDiv").innerHTML="当前第"+i+"题";
+        else {
+            document.getElementById("btnNext").hidden=true;
+            document.getElementById("btnSubmit").hidden=false;
+        }
+    }
+  //-->
+  </script>
+  <style type="text/css">
+    #mainDiv{
+        width:500px;
+        height:250px;
+        border:blue 1px solid;
+    }
+    #contentDiv{
+        width:490px;
+        height:200px;
+        border:green 1px solid;
+        margin-left:4px;
+    }
+  </style>
+  <title>Document</title>
+ </head>
+ <body>
+  <div id="mainDiv" class="">
+  题目内容：
+  <div id="contentDiv" class="">
+     
+  </div>
+  </div>
+  <input id="btnNext" type="button" value="下一题" onclick="nextChoice()">
+  <input id="btnSubmit" type="button" value="提交" hidden=false onclick="alert('提交成功！')">
+ </body>
 </html>

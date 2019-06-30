@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>拼图</title>
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+        <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: content-box;
+            }
+            .wrap{
+             background-image: url(image/gamez.jpg);
+		width:1050px;
+	  height: 700px;
+	position: fixed;
+	left: 50%;
+	top:50%;
+	z-index: 10;
+	margin-top: -350px;
+	margin-left: -525px;
+	border:3px solid ;
+	border-color:#3A4F51;
+            }
+            #Img{
+                width: 540px;
+                height: 540px;
+               margin: 70px 220px;
+			
+
+            }
+            #Img li{
+                list-style: none;
+                width: 170px;
+                height: 170px;
+                float: left;
+                border: 1px solid #F6F6F6;
+                margin: 1px;    
+                cursor: pointer;
+                background-image: url(../700.jpg);            
+                background-size:  510px 510px;
+                background-repeat: no-repeat;
+                position: relative;
+            }
+            
+            .start{
+                text-align: center;
+				width: 170px;
+                height: 170px;
+				 margin: -70px 450px;
+			
+            }
+			#begin{
+				width:100px;
+     text-align:center;
+     line-height:100%;
+     padding:0.3em;
+     font:16px Arial,sans-serif bold;
+     font-style:normal;
+     text-decoration:none;
+     margin:2px;
+     vertical-align:text-bottom;
+     zoom:1;
+     outline:none;
+     font-size-adjust:none;
+     font-stretch:normal;
+     border-radius:50px;
+     box-shadow:0px 1px 2px rgba(0,0,0,0.2);
+     text-shadow:0px 1px 1px rgba(0,0,0,0.3);
+     color:#fefee9;
+     border:0.2px solid #2299ff;
+     background-repeat:repeat;
+     background-size:auto;
+     background-origin:padding-box;
+     background-clip:padding-box;
+     background-color:#3399ff;
+     background: linear-gradient(to bottom, #eeeff9 0%,#3399ff 100%);
+			}
+			#begin:hover {
+    background: #268DFF;
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div id="Img">
+                <ul>
+                    
+                </ul>
+            </div>
+            <div class="start">
+                <select name="" id="select">
+                    <option value="3">简单</option>
+                    <option value="4">困难</option>
+                </select>
+                <button type="button" id="begin">开始</button>
+            </div>
+        </div>
+        
+        
+        <script src="../jquery/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+        
+            var group = 3,         //分为几组进行排列
+                ul = $("#Img ul"),
+                sequence = [],
+                ImgList = [],
+                imgLens,
+                steps;
+            
+            var Puzzle = {
+                initImgOrder : function(){   //正常顺序的图片
+                    imgLens = Math.pow(group,2);
+                    sequence = [];
+                    ul.empty();
+                    var size = group * 170 +"px";
+                    for (var i = 0; i < imgLens; i++) {                        
+                        var y = -((i / group) >>> 0), x = -i % group;
+                        ImgList[i+1] = [x,y];
+                        var li = '<li style="background-position: '+x*170+'px '+y*170+'px;"></li>';
+                        ul.append(li);                        
+                        sequence.push(i+1);
+                    }
+                    $("#Img li").css({"backgroundSize":size+" "+size});
+                },
+                showRandomImg: function(newArr){
+                    ul.empty();
+                    var size = group * 170 +"px";
+                    for (var i in newArr) {                        
+                        var item = newArr[i],
+                            x = ImgList[item][0],
+                            y = ImgList[item][1];
+                        var li = '<li data-index="'+item+'" style="background-position: '+x*170+'px '+y*170+'px;" ></li>';
+                        ul.append(li);
+                    }
+                    ul.append('<li id="block" data-index="'+imgLens+'" style="background-image: none;background-color: #fff;"></li>'); //加上空白格
+                    $("#Img li").css({"backgroundSize":size+" "+size});
+                },
+                imgMove: function(e){
+                    var allLi = ul.find("li"),
+                        x = allLi.index($(e)) + 1,                    
+                        z = allLi.index($("#block")) + 1;
+                    
+            
+                    if(x - 1 == z && (x-1) % group != 0){ //如果空白格在左边
+                        $(e).after($("#block"));        
+                        steps++;
+                    }
+                    if(x + 1 == z && (x+1) % group != 1){ //如果空白格在右边
+                        $("#block").after($(e));
+                        steps++;
+                    }
+                    if(x + group == z && (x+group) < imgLens+1){ //如果空白格在下边    
+                        var p = $("#block").prev();
+                        $(e).next().before($("#block"));
+                        p.after($(e));
+                        steps++;
+                    }
+                    if(x - group == z && (x-group) > 0){ //如果空白格在上边
+                        var p = $("#block").next();
+                        $(e).prev().after($("#block"));
+                        p.before($(e));        
+                        steps++;
+                    }
+                    
+                    
+                    Puzzle.isGameOver();
+                },
+                isGameOver: function(){   //游戏是否结束
+                    var allLi = ul.find("li"),
+                        count = 0;
+                    for (var i = 0; i < imgLens; i++) {
+                        var idx = allLi.eq(i).data().index;
+                
+                        if (idx == (i + 1)) {
+                            count++;
+                        }
+                    }
+                     
+                    if(count == imgLens){
+                        alert('恭喜你！用了 '+steps+' 步赢了');
+                        Puzzle.initImgOrder();
+                        $(".start").show();
+                    }
+                },
+                randomImgOrder: function(arr){  //随机打乱图片
+                    
+                    arr.sort(function () {
+                        return 0.5 - Math.random();
+                    });
+                    var num = Puzzle.reverseCount(arr);
+                    /** 检测打乱后是否可解 */
+                    if (num % 2 != 0) {
+                        /** 不可解，通过调换倒数第二个第三个数值，改变逆序数的奇偶性 */
+                        var len = arr.length,
+                        t = arr[len-2];
+                        arr[len-2] = arr[len-3];
+                        arr[len-3] = t;
+
+                    }
+                    console.log(arr)
+                    return arr;
+                    
+                },
+                reverseCount: function(arr){  //计算逆序数
+                    var reverseAmount = 0;
+
+                    for (var i = 0; i < imgLens-1; i++) {
+                        var current = arr[i];
+                
+                        for (var j = i + 1; j < imgLens-1; j++) {
+                            var compared = arr[j];
+                
+                            if (compared < current) {
+                                reverseAmount++;
+                            }
+                        }
+                    }
+                    
+                    return reverseAmount;
+                }
+            }
+            
+            
+            Puzzle.initImgOrder();
+            
+            
+            $("#select").on('change',function(){
+                var val = $(this).val();
+                if(val == "3"){
+                    group = 3;
+                    $("#Img").css({"width":"530px","height":"530px"});
+                    Puzzle.initImgOrder();
+                }else{
+                   // group = 4;
+                  //  $("#Img").css({"width":"700px","height":"700px"});                    
+                  //  Puzzle.initImgOrder();
+                }
+            });
+                    
+            $("#begin").on('click',function(){
+                $(".start").hide();
+                sequence.splice(imgLens-1, 1); //除开一个空白格
+                var randArr = Puzzle.randomImgOrder(sequence);
+                Puzzle.showRandomImg(randArr);
+                steps = 0;
+            });
+            ul.on('click','li',function(){
+                Puzzle.imgMove(this);
+            });
+        </script>
+    </body>
+</html>
