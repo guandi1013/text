@@ -1,10 +1,37 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>满族_目录</title>
-<style type="text/css">
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+  <script type="text/javascript"> 
+	  setTimeout(function(){
+  $(".talk").show("slow");
+       },800); 
+   
+	</script>
+	
 
+<style type="text/css">
+	
+	 #picBox{
+        margin:-250px auto;
+        width:600px;
+        height:400px;
+    }
+    #pic{
+        width:600px;
+        height:400px;
+
+    }
+    #buttonBox{
+        width:150px;
+        margin:10px auto;
+    }
+	body{
+		font-family:'方正舒体';
+	}
 	.aaa{
 	background-image: url(image/mzty.jpg);
 		width:1050px;
@@ -36,15 +63,114 @@
 	margin-left: 35px;
 		
 	}
+	.talk{
+			display: none;
+		position: absolute;
+	margin-top: -100px;
+	margin-left: 165px;
+	
+
+		
+	}   
+	#aa {
+	  	position: absolute;/*绝对定位*/
+  width: 100%;
+                bottom: 80px;/*离底下0像素*/
+                left: 23px;/*离左边0像素*/
+                font-size: 15px;
+  word-wrap: break-word;
+ word-break: break-all;
+
+      
+	}
+	
 	</style>
+	
 </head>
 
 <body>
+
 <div class="aaa">
+
 	<div class="deng"><marquee  behavior=alternate scrollamount=2.5><img src="image/deng.png"/></marquee></div>
 	<div class='ren'><img width=200px src="image/mzrr.png"/></div>
+  <div class='talk' style="position: relative;">
+  <pre id="aa"></pre>
+   <span style="display:none" id="w"  >欢迎学习满族小知识
+我们将了解关于
+满族的民族文化
+点击右侧开始学习吧！ </span>
+ 
+    <script language="javascript">
+    var index=0;
+    var word=document.getElementById("w").innerHTML;
+    function type(){
+        document.getElementById("aa").innerText = word.substring(0,index++);
+    }
+    setInterval(type, 200);
+</script>
+ 
+<img width="210" src='image/对话框.png'>
+ 
+  
+  </div>
+  <div id="picBox">
+  <img src="image/gamez.jpg" id="pic">
+  <div id="buttonBox">
+    <input type="button" value="文化"  onclick="pre();">
+    <input type="button" value="服饰"  onclick="next();">
+  </div>
+  
+</div>
+<script>
+    var picArr=new Array("minzu/image/neiye.jpg","minzu/image/neiye.jpg","minzu/image/gamez.jpg","minzu/image/gamez.jpg");
+    var index=0;
+    function next(){
+        index++;
+        if(index==picArr.length){
+            index=0;
+        }
+        document.getElementById("pic").src=picArr[index];
+    }
+    function pre(){
+        index--;
+        if(index<0){
+            index=picArr.length-1;
+        }
+        document.getElementById("pic").src=picArr[index];
+    }
+</script>
 </div>
 
+<script>
 
+    var picArr=new Array("minzu/image/neiye.jpg","minzu/image/neiye.jpg","minzu/image/gamez.jpg","minzu/image/gamez.jpg");
+    var index=0;
+    function next(){
+        index++;
+        if(index==picArr.length){
+            index=0;
+        }
+        document.getElementById("pic").src=picArr[index];
+    }
+    function pre(){
+        index--;
+        if(index<0){
+            index=picArr.length-1;
+        }
+        document.getElementById("pic").src=picArr[index];
+    }
+
+$(document).ready(function(){        //页面加载完之后，自动执行该方法
+
+setTimeout(function(){$(".talk").hide();},8500);        //2秒后执行该方法
+
+});
+
+
+
+
+   
+</script>
 </body>
 </html>
