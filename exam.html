@@ -1,49 +1,149 @@
-<!doctype html>
-<html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="Generator" content="EditPlusÂ®">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <script type="text/javascript">
-  <!--
-    window.i =0;
-    window.maxCount =10;//é¢˜ç›®æ€»æ•°10
-    function nextChoice () {
-        i++;
-        if(i<=maxCount)
-            document.getElementById("contentDiv").innerHTML="å½“å‰ç¬¬"+i+"é¢˜";
-        else {
-            document.getElementById("btnNext").hidden=true;
-            document.getElementById("btnSubmit").hidden=false;
-        }
-    }
-  //-->
-  </script>
-  <style type="text/css">
-    #mainDiv{
-        width:500px;
-        height:250px;
-        border:blue 1px solid;
-    }
-    #contentDiv{
-        width:490px;
-        height:200px;
-        border:green 1px solid;
-        margin-left:4px;
-    }
-  </style>
-  <title>Document</title>
- </head>
- <body>
-  <div id="mainDiv" class="">
-  é¢˜ç›®å†…å®¹ï¼š
-  <div id="contentDiv" class="">
-     
-  </div>
-  </div>
-  <input id="btnNext" type="button" value="ä¸‹ä¸€é¢˜" onclick="nextChoice()">
-  <input id="btnSubmit" type="button" value="æäº¤" hidden=false onclick="alert('æäº¤æˆåŠŸï¼')">
- </body>
+<html>
+<head>
+<meta http-equiv="Content-Language" mrc="zh-cn">
+<meta http-equiv="Content-Type" mrc="text/html; charset=gb2312">
+<title>JavaScriptÔÚÏß¿¼ÊÔÏµÍ³</title>
+<style type="text/css">
+	.aaa{
+	background-image: url(image/gamez.jpg);
+		width:1050px;
+	  height: 700px;
+	position: fixed;
+	left: 50%;
+	top:50%;
+	z-index: 10;
+	margin-top: -350px;
+	margin-left: -525px;
+	border:3px solid ;
+	border-color:#3A4F51;
+		
+}
+		</style>
+</head>
+<body>
+<div class="aaa">
+<SCRIPT LANGUAGE="JavaScript">
+
+function scorequiz(form) {
+ var list=0
+ if(form.Q1.value!=null  &&  form.Q1.value=="*") {list=list+10}
+ if(form.Q2.value!=null  &&  form.Q2.value=="*") {list=list+10}
+ if(form.Q3.value!=null  &&  form.Q3.value=="*") {list=list+10}
+ if(form.Q4.value!=null  &&  form.Q4.value=="*") {list=list+10}
+ if(form.Q5.value!=null  &&  form.Q5.value=="*") {list=list+10}
+ if(form.Q6.value!=null  &&  form.Q6.value=="*") {list=list+10}
+
+ //alert(list);
+ form.SCORE.value =eval(list)
+ if (form.SCORE.value<=10){
+ok="¼ÓÓÍÑ½£¬ÄãÕâ´Î²»¼°¸ñÅ¶£¡"
+alert(ok)}
+}
+ 
+function clearquiz(form) {
+ var list=0
+ form.Q1.value="?"
+ form.Q2.value="?"
+ form.Q3.value="?"
+ form.Q4.value="?"
+ form.Q5.value="?"
+ form.Q6.value="?"
+ form.SCORE.value =eval(list)
+}
+ 
+function msg() {
+ alert("ÄúµÄ³É¼¨½«E-mail¸øÏà¹ØÈËÔ±¡£")
+ }
+// -->
+</SCRIPT>
+ 
+<body>
+<table width="85%" border="0" align="center">
+  <tr>
+
+      <form name="quiz1" 
+ action ="mailto:www.baidu.com@163.com"  method="post" enctype="text/plain" 
+ onLoad="clearquiz(this.form)" onSubmit="msg()">
+        <hr>
+        1. Âú×å¸¾Å®Ëù´©µÄ·şÊÎÊÇ£º__________   
+        <ol>
+          <input type="radio" name="Q1" value="*ÆìÅÛ" onClick=Q1.value="*">
+          ÆìÅÛ
+          <input type="radio" name="Q1" value="ÅÛ¹Ó" onClick=Q1.value="ÅÛ¹Ó">
+         ÅÛ¹Ó
+          <input type="radio" name="Q1" value="Æ¤ÒÂ" onClick=Q1.value="Æ¤ÒÂ">
+          Æ¤ÒÂ
+        </ol>
+        2. ÒÔÏÂÄÄ¸öÃñ×åÒÔÓæÁÔÎªÉú: __________ 
+        <ol>
+          <input type="radio" name="Q2" value="Âú×å" onClick=Q2.value="Âú×å">
+          Âú×å
+  
+          <input type="radio" name="Q2" value="*ºÕÕÜ×å" onClick=Q2.value="*">
+          ºÕÕÜ×å
+  
+          <input type="radio" name="Q2" value="¶õÂ×´º" onClick=Q2.value="¶õÂ×´º">
+         ¶õÂ×´º
+        </ol>
+        3. ´ºÇïÁ½¼¾£¬´ïÎÓ¶ûÃñ×åÄĞ×ÓÒ»°ã´©Ò»ÖÖ³¤ÖÁÏ¥¸ÇµÄ__________
+        <ol>
+          <input type="radio" name="Q3" value="Ñü´ø" onClick=Q3.value="Ñü´ø">
+          Ñü´ø
+  
+          <input type="radio" name="Q3" value="ÍâÌ×" onClick=Q3.value="ÍâÌ×">
+          ÍâÌ×
+  
+          <input type="radio" name="Q3" value="¶ÌÒÂ" onClick=Q3.value="¶ÌÒÂ">
+         ¶ÌÒÂ
+  
+          <input type="radio" name="Q3" value="*Æ¤ÅÛ" onClick=Q3.value="*">
+          Æ¤ÅÛ
+  
+        </ol>
+        4. ÁÔÂí£¬ÁÔ¹·ÊÇ¶õÂ×´ºÃñ×å±Ø²»¿ÉÉÙµÄÍ¬°é£¬±»³Æ×÷__________  
+        <ol>
+          <input type="radio" name="Q4" value="ÁÔÈËµÄ¹¤¾ß" onClick=Q4.value="ÁÔÈËµÄ¹¤¾ß">
+          ¡°ÁÔÈËµÄ¹¤¾ß¡±
+  
+          <input type="radio" name="Q4" value="*ÁÔÈËµÄ»ï°é" onClick=Q4.value="*">
+        ¡°ÁÔÈËµÄ»ï°é¡±
+  
+        </ol>
+        5.ºÕÕÜÈË½«ÈøÂú·ÖÎªºÓÉñÅÉ£¬¶À½ÇÁúÅÉºÍ __________  
+        <ol>
+          <input type="radio" name="Q5" value="*½­ÉñÅÉ" onClick=Q5.value="*">
+          ½­ÉñÅÉ
+  
+          <input type="radio" name="Q5" value="ÉñÁúÅÉ" onClick=Q5.value="ÉñÁúÅÉ">
+          ÉñÁúÅÉ
+  
+          <input type="radio" name="Q5" value="´óºÍÅÉ" onClick=Q5.value="´óºÍÅÉ">
+          ´óºÍÅÉ
+  
+          <input type="radio" name="Q5" value="ÉÏºÓÅÉ" onClick=Q5.value="ÉÏºÓÅÉ">
+          ÉÏºÓÅÉ
+  
+        </ol>
+        6.Çå³¯Ê±Á÷ĞĞ´©__________ Ó¦µ±ËµÊÇ½ø¹ØÖ®ºó£¬ÓÉÓÚÃñ×åÈÚºÏ£¬ÊÜºº×åÒÂ×ÅÓ°ÏìµÄ½á¹û  
+        <ol>
+          <input type="radio" name="Q6" value="ÃŞÒÂ" onClick=Q6.value="ÃŞÒÂ">
+          ÃŞÒÂ
+ 
+          <input type="radio" name="Q6" value="*¿²¼ç" onClick=Q6.value="*">
+          ¿²¼ç
+ 
+          <input type="radio" name="Q6" value="ÅÛ×Ó" onClick=Q6.value="ÅÛ×Ó">
+          ÅÛ×Ó
+ 
+        </ol>
+      
+       
+        <input type="button" name="submit" value="¿ªÊ¼ÆÀ·Ö" onClick=scorequiz(this.form) class="pt9">
+        <input type="reset" name="reset" value="ÖØĞÂ²âÊÔ" onClick=clearquiz(this.form) class="pt9">  
+        <input type="submit" value="½«³É¼¨MAIL¸ø¹ÜÀíÔ±" onClick=scorequiz(this.form) name="submit" class="pt9">  
+        ÄãµÄ¿¼ÊÔ³É¼¨£º   
+        <input  name="SCORE" type="text" class="pt9">
+      </form>
+      </div>
+</body>
 </html>

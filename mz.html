@@ -15,11 +15,8 @@
 
 <style type="text/css">
 	
-	 #picBox{
-        margin:-250px auto;
-        width:600px;
-        height:400px;
-    }
+	#hello{width:600px;height:400px;border:1px solid #369;overflow:hidden;margin:-180px auto;}
+	#word{margin:auto;width:500px;}
     #pic{
         width:600px;
         height:400px;
@@ -27,7 +24,7 @@
     }
     #buttonBox{
         width:150px;
-        margin:10px auto;
+        margin:210px auto;
     }
 	body{
 		font-family:'方正舒体';
@@ -114,53 +111,32 @@
  
   
   </div>
-  <div id="picBox">
-  <img src="image/gamez.jpg" id="pic">
-  <div id="buttonBox">
-    <input type="button" value="文化"  onclick="pre();">
-    <input type="button" value="服饰"  onclick="next();">
-  </div>
-  
+  <div id="hello">
+<img width=600px height:400px src="image/m1.jpg">
+<img width=600px height:400px src="image/m2.jpg">
+<img width=600px height:400px src="image/m3.jpg">
 </div>
+ 
+<div id="buttonBox">
+<input type="button" value="上一张" onclick="a()";>
+<input type="button" value="下一张" onclick="b()";>
+</div>
+ 
 <script>
-    var picArr=new Array("minzu/image/neiye.jpg","minzu/image/neiye.jpg","minzu/image/gamez.jpg","minzu/image/gamez.jpg");
-    var index=0;
-    function next(){
-        index++;
-        if(index==picArr.length){
-            index=0;
-        }
-        document.getElementById("pic").src=picArr[index];
-    }
-    function pre(){
-        index--;
-        if(index<0){
-            index=picArr.length-1;
-        }
-        document.getElementById("pic").src=picArr[index];
-    }
+function a(){
+    $('#hello').find('img').eq(0).appendTo($('#hello'));
+}
+function b(){
+    $('#hello').find('img:last').eq(0).prependTo($('#hello'));
+}
+ 
 </script>
+
 </div>
 
 <script>
 
-    var picArr=new Array("minzu/image/neiye.jpg","minzu/image/neiye.jpg","minzu/image/gamez.jpg","minzu/image/gamez.jpg");
-    var index=0;
-    function next(){
-        index++;
-        if(index==picArr.length){
-            index=0;
-        }
-        document.getElementById("pic").src=picArr[index];
-    }
-    function pre(){
-        index--;
-        if(index<0){
-            index=picArr.length-1;
-        }
-        document.getElementById("pic").src=picArr[index];
-    }
-
+    
 $(document).ready(function(){        //页面加载完之后，自动执行该方法
 
 setTimeout(function(){$(".talk").hide();},8500);        //2秒后执行该方法
@@ -172,5 +148,6 @@ setTimeout(function(){$(".talk").hide();},8500);        //2秒后执行该方法
 
    
 </script>
+
 </body>
 </html>
