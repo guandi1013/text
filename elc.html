@@ -80,7 +80,12 @@
 
       
 	}
-	
+		#nav{
+		position: absolute;/*绝对定位*/
+            width: 100%;
+                bottom: 40px;/*离底下0像素*/
+                left: 823px;/*离左边0像素*/
+	}
 	</style>
 	
 </head>
@@ -97,7 +102,7 @@
 我们将了解关于
 鄂伦春的民族文化
 点击右侧开始学习吧！ </span>
- 
+  
     <script language="javascript">
     var index=0;
     var word=document.getElementById("w").innerHTML;
@@ -122,7 +127,9 @@
 <input type="button" value="上一张" onclick="a()";>
 <input type="button" value="下一张" onclick="b()";>
 </div>
- 
+ <div id="nav">
+	<a href="know.html"><img  src="image/fh.png"></a>
+</div>
 <script>
 function a(){
     $('#hello').find('img').eq(0).appendTo($('#hello'));

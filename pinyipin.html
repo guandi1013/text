@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+  <title>onLine</title>
+   <style type="text/css">
+	   #nav{
+		position: absolute;/*绝对定位*/
+            width: 100%;
+                bottom: 40px;/*离底下0像素*/
+                left: 823px;/*离左边0像素*/
+	}
+    .wrap{
+             background-image: url(image/gamez.jpg);
+		width:1050px;
+	  height: 700px;
+	position: fixed;
+	left: 50%;
+	top:50%;
+	z-index: 10;
+	margin-top: -350px;
+	margin-left: -525px;
+	border:3px solid ;
+	border-color:#3A4F51;
+            }
+	 </style>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/onLine.css"/>
+  <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+  <script src="js/onLine.js"></script>
+  <script type="text/javascript">
+  $(function(){	
+		var obj = $(".demo");
+		var size = obj.size();
+		for(var i=0; i<size; i++ ){
+			obj.eq(i).onLine({
+				regainCanvas: true
+			});
+		}
+  });
+  </script>
+</head>
+<body>    <div class="wrap">
+    <div id="test" align="center"   data-pair = 5 class="demo pt10">	
+        <div class="show cb">
+			<div class="tools">
+			    <div class="savePair">查看正确答案</div>
+           		<div class="goBackBtn">回退</div>                                
+                <div class="resetCanvasBtn">重置</div>	
+            </div>
+            <div class="showleft"><!--左侧-->
+            	<span class="showitem" data-id="L1">达斡尔族服饰</span>
+                <span class="showitem" data-id="L2">
+
+					满族姓氏
+				</span>
+                <span class="showitem" data-id="L3">
+				少数民族数
+				</span>
+                <span class="showitem" data-id="L4">
+				赫哲族传统节日
+				</span>
+                <span class="showitem" data-id="L5"> 达斡尔族服饰 </span>
+                <span class="showitem" data-id="L6"> 鄂伦春姓氏 </span>
+            </div>
+            <div class="showright"><!--右侧-->
+                <span class="showitem" data-id="R1"> 55 </span>
+                <span class="showitem" data-id="R2">
+					乌日贡节
+				</span>
+                <span class="showitem" data-id="R3"> 56 </span>
+                <span class="showitem" data-id="R4">
+					旗袍
+				</span>
+                <span class="showitem" data-id="R5">乌苏里氏</span>
+                <span class="showitem" data-id="R6"> 大襟皮袍</span>      	
+            </div>
+			<!-- -->
+            <canvas class="canvas"></canvas>
+            <canvas class="backcanvas"></canvas>
+        </div>            
+    </div>  <div id="nav">
+	<a href="game.html"><img  src="image/fh.png"></a>
+</div>  </div> 
+<!-------------------      -------------------------------------->
+           
+</body>
+</html>

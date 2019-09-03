@@ -6,6 +6,12 @@
         <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
 </script>
         <style type="text/css">
+			#nav{
+		position: absolute;/*绝对定位*/
+            width: 100%;
+                bottom: 40px;/*离底下0像素*/
+                left: 823px;/*离左边0像素*/
+	}
             *{
                 margin: 0;
                 padding: 0;
@@ -49,7 +55,7 @@
                 text-align: center;
 				width: 170px;
                 height: 170px;
-				 margin: -70px 450px;
+				 margin: -70px 400px;
 			
             }
 			#begin{
@@ -85,6 +91,7 @@
         </style>
     </head>
     <body>
+  
         <div class="wrap">
             <div id="Img">
                 <ul>
@@ -92,12 +99,12 @@
                 </ul>
             </div>
             <div class="start">
-                <select name="" id="select">
-                    <option value="3">简单</option>
-                    <option value="4">困难</option>
-                </select>
+                
                 <button type="button" id="begin">开始</button>
             </div>
+                  <div id="nav">
+	<a href="game.html"><img  src="image/fh.png"></a>
+</div>
         </div>
         
         

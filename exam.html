@@ -2,10 +2,10 @@
 <head>
 <meta http-equiv="Content-Language" mrc="zh-cn">
 <meta http-equiv="Content-Type" mrc="text/html; charset=gb2312">
-<title>JavaScript在线考试系统</title>
+<title>在线考试</title>
 <style type="text/css">
 	.aaa{
-	background-image: url(image/gamez.jpg);
+	background-image: url(image/hgf.jpg);
 		width:1050px;
 	  height: 700px;
 	position: fixed;
@@ -18,6 +18,16 @@
 	border-color:#3A4F51;
 		
 }
+	#nav{
+		position: absolute;/*绝对定位*/
+            width: 100%;
+                bottom: 40px;/*离底下0像素*/
+		left: 823px;/*离左边0像素*/}
+	#gui{
+		text-align:center;
+		position: absolute;
+			left: 823px;
+	}
 		</style>
 </head>
 <body>
@@ -58,21 +68,22 @@ function msg() {
 </SCRIPT>
  
 <body>
+ <div class="gui"> 
 <table width="85%" border="0" align="center">
   <tr>
 
       <form name="quiz1" 
  action ="mailto:www.baidu.com@163.com"  method="post" enctype="text/plain" 
  onLoad="clearquiz(this.form)" onSubmit="msg()">
-        <hr>
-        1. 满族妇女所穿的服饰是：__________   
+      <hr>
+          1. 满族所穿的服饰是：__________   
         <ol>
           <input type="radio" name="Q1" value="*旗袍" onClick=Q1.value="*">
-          旗袍
+           <img src="image/11.jpg" width="100">
           <input type="radio" name="Q1" value="袍褂" onClick=Q1.value="袍褂">
-         袍褂
+       <img src="image/1122.jpg" width="100">
           <input type="radio" name="Q1" value="皮衣" onClick=Q1.value="皮衣">
-          皮衣
+         <img src="image/33.jpg" width="100">
         </ol>
         2. 以下哪个民族以渔猎为生: __________ 
         <ol>
@@ -144,6 +155,10 @@ function msg() {
         你的考试成绩：   
         <input  name="SCORE" type="text" class="pt9">
       </form>
+      </div>
+       <div id="nav">
+	<a href="mulu.html"><img  src="image/fh.png"></a>
+</div>
       </div>
 </body>
 </html>

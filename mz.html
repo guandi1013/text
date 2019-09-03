@@ -80,7 +80,12 @@
 
       
 	}
-	
+	#nav{
+		position: absolute;/*绝对定位*/
+            width: 100%;
+                bottom: 40px;/*离底下0像素*/
+                left: 823px;/*离左边0像素*/
+	}
 	</style>
 	
 </head>
@@ -112,6 +117,9 @@
   
   </div>
   <div id="hello">
+  <video width=700px height:400px controls="controls">
+  	<source src="video/shipin.mp4" type="video/mp4"></source>
+  </video>
 <img width=600px height:400px src="image/m1.jpg">
 <img width=600px height:400px src="image/m2.jpg">
 <img width=600px height:400px src="image/m3.jpg">
@@ -121,7 +129,9 @@
 <input type="button" value="上一张" onclick="a()";>
 <input type="button" value="下一张" onclick="b()";>
 </div>
- 
+  <div id="nav">
+	<a href="know.html"><img  src="image/fh.png"></a>
+</div>
 <script>
 function a(){
     $('#hello').find('img').eq(0).appendTo($('#hello'));
